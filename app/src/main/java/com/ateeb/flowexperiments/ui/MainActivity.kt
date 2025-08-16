@@ -1,10 +1,12 @@
-package com.ateeb.flowexperiments
+package com.ateeb.flowexperiments.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.ateeb.flowexperiments.databinding.ActivityMainBinding
+import com.ateeb.flowexperiments.ui.cold.ColdFlowDemoActivity
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flatMapConcat
@@ -24,37 +26,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Hot  Flow
-        // Cold Flow
-
-        lifecycleScope.launch() {
-            flowOfExample()
+        binding.btnColdFlows.setOnClickListener {
+            startActivity(Intent(this, ColdFlowDemoActivity::class.java))
         }
 
     }
-
-    @OptIn(ExperimentalCoroutinesApi::class)
-    private suspend fun flowOfExample() {
-        /**
-         * - For emitting fixed values
-         * - Doesn't need emit
-         */
-
-        val staticList: MutableList<Int> = mutableListOf()
-        for (i in 1..60) staticList.add(i)
-
-        flowOf(staticList)
-            .flatMapConcat {
-                flow {
-                    emit(it)
-                }
-            }
-            .map { Log.d(TAG,(it + 220).toString()) }
-//            .collect {
-//                delay(500)
-//                binding.countTv.text = it.toString()
-//            }
-    }
-
 
 }

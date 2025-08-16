@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cold Flow Demos"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:padding="16dp" />
+
+    <Button
+        android:id="@+id/btn_flow_of"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Run flowOf Demo" />
+
+    <Button
+        android:id="@+id/btn_flow_builder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Run flow Builder Demo" />
+
+    <!-- Add more buttons for asFlow, channelFlow, etc. -->
+
+    <TextView
+        android:id="@+id/codeTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Code will appear here"
+        android:textSize="14sp"
+        android:fontFamily="monospace"
+        android:padding="8dp"
+        android:background="#EEEEEE" />
+
+    <TextView
+        android:id="@+id/resultTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Result will appear here"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:padding="16dp" />
+</LinearLayout>
